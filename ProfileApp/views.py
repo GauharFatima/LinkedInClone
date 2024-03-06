@@ -18,7 +18,7 @@ def profile_test(request):
 
 
 def complete_profile(request):
-    profile, created = Profile.objects.get_or_create(user=request.user)
+    profile, created = Profile.objects.get_or_create(user=request.session.get('myuser_id'))
 
     if request.method == 'POST':
         profile_form = ProfileForm(
