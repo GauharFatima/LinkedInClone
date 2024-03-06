@@ -13,7 +13,7 @@ def createUser(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('feed')
+        return redirect('login')
         # return redirect('ProfileApp:profile_test')
 
     return render(request, 'AccountsApp/signup.html', {'form': form})
