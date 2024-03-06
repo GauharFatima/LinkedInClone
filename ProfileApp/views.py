@@ -62,7 +62,7 @@ def complete_profile(request):
         'experience_form': experience_form,
     }
 
-    return render(request, 'ProfileApp/complete_profile.html', context)
+    return render(request, 'ProfileApp/complete.html', context)
 
 
 # def profile_edit(request):
