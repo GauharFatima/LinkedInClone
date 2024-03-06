@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+    <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <span class="logo">LinkedIn</span>
+            <nav class="site-nav">
+                <a href="{% url 'feed' %}" class="nav-item">Home</a>
+                <a href="#" class="nav-item">Jobs</a>
+                <a href="#" class="nav-item">Messaging</a>
+                <a href="{% url 'ProfileApp:profile_detail' myuser.id %}" class="nav-item">Me</a>
+                <div class="auth-buttons">
+                    <a href="{% url 'logout' %}" class="button">LogOut</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <aside class="sidebar-left">
+            {% if profile %}
+            <div class="profile-card">
+                {% if profile.profile_pic %}
+                <img class="profile-picture" src="{{ profile.profile_pic.url }}">
+                {% else %}
+                <img class="profile-picture" src="{% static 'images/default-profile-pic.jpg' %}"
+                    alt="Default Profile Picture">
+                {% endif %}
+                <div class="user-info">
+                    <h2 class="user-name">{{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
+                    {% if profile.title %}
+                    <p class="user-title">{{ profile.title }}</p>
+                    {% endif %}
+                    {% if profile.skills %}
+                    <p class="user-skills">{{ profile.skills }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% else %}
+            <p>User not found or not logged in.</p>
+            {% endif %}
+        </aside>
+
+
+        <section class="feed">
+            <div class="post-creator">
+                <!-- Post creation area -->
+                {% if post.profile.profile_pic %}
+                <img class="profile-picture" src="{{ post.profile.profile_pic.url }}">
+                {% else %}
+                <img class="profile-picture" src="{% static 'images/default-profile-pic.jpg' %}"
+                    alt="Default Profile Picture">
+                {% endif %}
+                <!-- <img src="{% static 'images/pro_pic.jpeg' %}" alt="Profile Picture" class="profile-pic"> -->
+
+                <!-- way 1 with post button redirection -->
+                <!-- <textarea placeholder="Start a post..."></textarea> -->
+                <!-- <a href="{% url 'posts:post_create' %}" class="btn post-button">Post</a> -->
+
+                <!-- way 2 onclick JS -->
+                <textarea placeholder="Start a post..."
+                    onclick="location.href='{% url 'posts:post_create' %}';"></textarea>
+
+                <!-- way 3 using modal - Clicking on this area will trigger the modal -->
+                <!-- <textarea placeholder="Start a post..." data-toggle="modal" data-target="#createPostModal"></textarea> -->
+            </div>
+            <!-- Iterate over posts -->
+            {% for post in posts %}
+                <div class="post-card">
+                    <div class="post-header">
+                        {% if post.profile.profile_pic %}
+                        <img class="profile-picture" src="{{ post.profile.profile_pic.url }}">
+                        {% else %}
+                        <img class="profile-picture" src="{% static 'images/default-profile-pic.jpg' %}"
+                            alt="Default Profile Picture">
+                        {% endif %}
+                        <div class="user-details">
+                            <span class="user-name">{{ post.profile.user.first_name }} {{post.profile.user.last_name}}</span>
+                            <span class="post-time">{{ post.created_at|date:"F d, Y H:i" }}</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>{{ post.content }}</p>
+                        {% if post.image %}
+                        <img class="post-image" src="{{ post.image.url }}" alt="Post Image">
+                        {% endif %}
+                    </div>
+                    <div class="post-actions">
+                        <!-- like -->
+                        <button class="like-button" data-post-id="{{ post.id }}">{{ post.likes.count }} Like</button>
+                        
+                        <!-- comment -->
+                        <button class="comment-toggle" data-post-id="{{ post.id }}">Comment</button>
+                        <!-- Hidden comment submission section -->
+                        <div class="comment-submission" id="comment-submission-{{ post.id }}" style="display: none;">
+                            <div class="user-info">
+                                <img src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+                                <span>{{ request.user.first_name }}</span>
+                            </div>
+                            <form class="comment-form" data-post-id="{{ post.id }}">
+                                {% csrf_token %}
+                                <textarea name="content" placeholder="Write a comment..."></textarea>
+                                <button type="submit">Post</button>
+                            </form>
+                            <!-- Comments display section -->
+                            <div class="comments-display" id="comments-display-{{ post.id }}">
+                                <!-- Load comments via JavaScript or initially render a few comments here -->
+                                <button class="load-comments" data-post-id="{{ post.id }}">view more Comments</button>
+                            </div>
+                        </div>
+                        
+
+                        <!-- send -->
+                        <button class="send-button">Send</button>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No posts to display.</p>
+            {% endfor %}
+
+            {% load static %}
+            <!-- like AJAX script -->
+            <script src="{% static 'js/like.js' %}"></script>
+
+            <!-- comment AJAX script  -->
+            <script src="{% static 'js/comments.js' %}"></script>
+            
+        </section>
+
+        <aside class="sidebar-right">
+            <div class="latest-news">
+                <h3>Latest News</h3>
+                <ul>
+                    <li><a href="#">Tech Company X releases new product</a></li>
+                    <li><a href="#">Update on the market trends</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 My LinkedIn</p>
+        </div>
+    </footer>
+</body>
+
+</html>

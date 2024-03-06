@@ -14,27 +14,30 @@ LinkedIn users are professionals and job seekers who utilize the platform for ne
 ### User Stories (as granular as possible)   
 
 1. **General user** like job hunters, Quiet Listener  
-   1. As a User, ISBAT create a post.
-   2. As a User, ISBAT edit my post.
-   3. As a User, ISBAT delete my post.
-   4. As a User, ISBAT like a post.
-   5. As a User, ISBAT comment on a post.
-   6. As a User, ISBAT view my profile.
-   7. As a User, ISBAT edit my profile.
-   8. As a User, ISBAT add eductional details.
-   9. As a User, ISBAT add cerifcates.
-   10. As a User, ISBAT add profile photo.
-   11. As a User, ISBAT see other person profile.
-   12. As a User, ISBAT search any user.  
-   13. As a User, ISBAT send connection requests to another user. 
-   14. As a User, ISBAT accept or reject connection requests from another user. 
+
+   1. As a User, ISBAT login.
+   2. As a User, ISBAT Sign in.
+   3. As a User, ISBAT create a post.
+   4. As a User, ISBAT edit my post.
+   5. As a User, ISBAT delete my post.
+   6. As a User, ISBAT like a post.
+   7. As a User, ISBAT comment on a post.
+   8. As a User, ISBAT view my profile.
+   9. As a User, ISBAT edit my profile.
+   10. As a User, ISBAT add eductional details.
+   11. As a User, ISBAT add cerifcates.
+   12. As a User, ISBAT add profile photo.
+   13. As a User, ISBAT see other person profile.
+   14. As a User, ISBAT search any user.  
+   15. As a User, ISBAT send connection requests to another user. 
+   16. As a User, ISBAT accept or reject connection requests from another user. 
 
    Advance implementations for Users:  
 
-   15. As a User, ISBAT send message to other user.
-   16. As a User, ISBAT block another user.
-   17. As a User, ISBAT report inappropriate content.
-   18. As a User, ISBAT view notifications.  
+   17. As a User, ISBAT send message to other user.
+   18. As a User, ISBAT block another user.
+   19. As a User, ISBAT report inappropriate content.
+   20. As a User, ISBAT view notifications.  
    
 2. **Knowledge Miner**- someone who post eductional content
    1. As a Creator, ISBAT write longer post.

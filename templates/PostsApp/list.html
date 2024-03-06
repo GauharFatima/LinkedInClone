@@ -1,0 +1,21 @@
+{% extends 'PostsApp/postBase.html' %}
+
+{% block content %}
+<h2>Following are All the Posts</h2>
+<div class="posts-list">
+    <ul>
+        {% for post in posts %}
+        <li>
+            <p>Posted on: {{ post.created_at }}</p>
+            <p>{{ post.content|truncatewords:30 }}</p>
+            <a href="{% url 'posts:post_detail' post.pk %}">Detail Post</a>
+            <!-- Like link and count -->
+            <a href="{% url 'posts:toggle_like' post.pk %}">Like</a>
+            <span>{{ post.likes.count }} Like{{ post.likes.count|pluralize }}</span>
+        </li>
+        {% empty %}
+        <li>No posts available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

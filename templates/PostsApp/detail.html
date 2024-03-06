@@ -1,0 +1,17 @@
+{% extends 'PostsApp/postBase.html' %}
+
+{% block content %}
+<div class="post-detail">
+    <p>{{ post.content }}</p>
+    {% if post.image %}
+    <!-- <p> Show image here </p> -->
+    <img src="{{ post.image.url }}" alt="Post Image">
+    {% endif %}
+    <a href="{% url 'posts:post_update' post.pk %}">Edit</a>
+    <a href="{% url 'posts:post_delete' post.pk %}">Delete</a>
+    <a href="{% url 'posts:toggle_like' post.pk %}">Like</a>
+    <span>{{ post.likes.count }} Like{{ post.likes.count|pluralize }}</span>
+    <!-- <a href="{% url 'feed' %}">Home</a> -->
+
+</div>
+{% endblock %}

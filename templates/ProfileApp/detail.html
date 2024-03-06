@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}"/>
+</head>
+<body>
+    {% block content %}
+    <div class="profile-container">
+        <div class="profile-banner">
+        </div>
+
+        <div class="profile-header">
+            <div class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h1>{{ my_user.first_name }} {{ my_user.last_name }}</h1>
+                <p class="profile-bio">BIO: {{ profile.bio }}</p>
+            </div>
+        </div>
+
+        <!-- The rest of the sections remain unchanged -->
+        <div class="profile-education">
+            <h2>Education</h2>
+            {% for education in profile.educations.all %}
+            <div class="education-entry">
+                <h3>{{ education.institution }}</h3>
+                <p>{{ education.degree }}</p>
+                <p>{{ education.start_year }} - {{ education.end_year|default:"Present" }}</p>
+                <p>{{ education.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="profile-skills">
+            <h2>Skills</h2>
+            <ul>
+                {% for skill in profile.skills.all %}
+                <li>{{ skill.skill_name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="profile-experience">
+            <h2>Experience</h2>
+            {% for experience in profile.experiences.all %}
+            <div class="experience-entry">
+                <h3>{{ experience.company_name }}</h3>
+                <p>{{ experience.title }}</p>
+                <p>{{ experience.start_date }} - {{ experience.end_date|default:"Present" }}</p>
+                <p>{{ experience.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

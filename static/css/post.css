@@ -1,0 +1,52 @@
+:root {
+    /* Define base font size */
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 60rem; /* 960px if base size is 16px */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.site-header, .site-footer {
+    background-color: #0073b1;
+    color: white;
+    padding: 1rem 0;
+}
+
+.site-header a.header-logo, .site-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.site-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.site-nav li {
+    margin: 0 1em;
+}
+
+.site-nav a {
+    font-size: 1rem; /* 16px */
+    padding: 0.5em 0;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Add more styles as needed */

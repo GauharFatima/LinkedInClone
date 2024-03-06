@@ -1,0 +1,161 @@
+/* Reset some basic elements */
+body, h1, ul, li, a, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Apply a natural box layout model to all elements */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 5%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0073b1;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    color: #666;
+    cursor: pointer;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: #0073b1;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.login-section {
+    flex: 1;
+    max-width: 450px;
+    padding-right: 50px;
+}
+
+.login-section h1 {
+    font-size: 32px;
+    color: #2977c9;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+.sign-in-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #0073b1;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    display:flex;
+    align-content: flex-start;
+    color: #0073b1;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.image-section {
+    flex: 1;
+    max-width: 450px;
+    text-align: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Responsive Design: Adjust layout for smaller screens */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .login-section, .image-section {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .nav-list {
+        display: none; /* Hide the nav list on small screens */
+    }
+}
+
+/* Adjustments for messages */
+.messages {
+    list-style: none;
+    padding: 10px;
+    background-color: #e1ecf4;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.messages li {
+    color: #31708f;
+}

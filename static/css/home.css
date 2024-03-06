@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f2ef;
+}
+
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* nav bar css */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 5%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0073b1;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    color: #666;
+    cursor: pointer;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: #0073b1;
+    font-weight: bold;
+    margin-left: 10px;
+}
+/* nav bar css */
+
+
+.feed-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 30px;
+}
+
+.left-sidebar, .right-sidebar {
+    width: 20%; /* Adjust width as needed */
+}
+
+.feed {
+    width: 60%; /* Adjust width as needed */
+}
+
+.profile-card {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-creator {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Add more styling for post creator */
+}
+
+/* post create area start */
+.post-creator {
+    display: flex;
+    align-items: flex-start; /* Align items to the start of the container */
+    gap: 10px; /* Add some space between the items */
+}
+
+.profile-pic {
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    border-radius: 50%; /* Make it round */
+    margin-right: 10px; /* Add space to the right of the image */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+}
+
+.post-creator textarea {
+    flex-grow: 1; /* Allow the textarea to grow and fill the available space */
+    margin-right: 10px; /* Add space to the right of the textarea */
+}
+
+/* .post-creator button {
+    white-space: nowrap;
+    padding: 10px 15px; 
+} */
+
+/* styles.css */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* post create area end */
+
+.news-panel {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Add more styling for news panel */
+}
+
+footer {
+    background-color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* Additional styles for post layout */
+.post-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.post-header img {
+    margin-right: 10px;
+}
+
+.post-info h4, .post-info small {
+    margin: 0;
+}
+
+.post-body {
+    margin-bottom: 10px;
+}
+
+.post-actions {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.post-actions button:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Complete Your Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+        <!-- CSRF Token -->
+        {% csrf_token %}
+        <!-- Profile Section -->
+        <h3>Profile</h3>
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="4"></textarea>
+
+        <label for="profile_pic">Profile Picture:</label>
+        <input type="file" id="profile_pic" name="profile_pic">
+
+        <!-- Education Section -->
+        <h3>Education</h3>
+        <label for="institution">Institution:</label>
+        <input type="text" id="institution" name="institution">
+
+        <label for="degree">Degree:</label>
+        <input type="text" id="degree" name="degree">
+
+        <label for="start_year">Start Year:</label>
+        <input type="date" id="start_year" name="start_year">
+
+        <label for="end_year">End Year:</label>
+        <input type="date" id="end_year" name="end_year">
+
+        <label for="edu_description">Description:</label>
+        <textarea id="edu_description" name="edu_description" rows="2"></textarea>
+
+        <!-- Skills Section -->
+        <h3>Skills</h3>
+        <label for="skill_name">Skill Name:</label>
+        <input type="text" id="skill_name" name="skill_name">
+
+        <!-- Experience Section -->
+        <h3>Experience</h3>
+        <label for="company_name">Company Name:</label>
+        <input type="text" id="company_name" name="company_name">
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+
+        <label for="exp_start_date">Start Date:</label>
+        <input type="date" id="exp_start_date" name="exp_start_date">
+
+        <label for="exp_end_date">End Date:</label>
+        <input type="date" id="exp_end_date" name="exp_end_date">
+
+        <label for="exp_description">Description:</label>
+        <textarea id="exp_description" name="exp_description" rows="2"></textarea>
+
+        <button type="submit">Save Profile</button>
+        <a href="{% url 'feed' %}">Skip</a>
+
+    </form>
+</div>
+
+</body>
+</html>

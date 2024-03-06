@@ -1,0 +1,102 @@
+/* profile.css */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.profile-container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-banner {
+    background-color: #0077b5;
+    height: 150px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-right: 20px;
+    border: 2px solid #0077b5;
+    /* Replace the line below with the actual image path */
+    background-image: url('images/pic2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.profile-picture {
+    width: 50px;  /* Set the width */
+    height: 50px;  /* Set the height */
+    border-radius: 50%;  /* Make the image round */
+    object-fit: cover;  /* Ensure the image covers the area without stretching */
+}
+.profile-info h1 {
+    color: #0077b5;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.profile-bio {
+    color: #666666;
+    font-size: 16px;
+}
+
+.profile-education, .profile-skills, .profile-experience {
+    padding: 20px;
+}
+
+h2 {
+    color: #0077b5;
+    font-size: 22px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.education-entry, .experience-entry {
+    margin-bottom: 20px;
+}
+
+.education-entry h3, .experience-entry h3 {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.education-entry p, .experience-entry p {
+    font-size: 14px;
+    color: #666666;
+}
+
+.profile-skills ul {
+    list-style: none;
+}
+
+.profile-skills li {
+    display: inline-block;
+    background-color: #0077b5;
+    color: #ffffff;
+    padding: 5px 15px;
+    margin: 5px;
+    border-radius: 15px;
+    font-size: 14px;
+}

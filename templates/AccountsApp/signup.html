@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}"/>
+    <title>Sign Up</title>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">LinkedIn</a>
+    </header>
+    <div class="signup-container">
+        <form class="signup-form" method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {% if messages %}
+            <ul class="messages">
+                <li class="{{ message.tags }}">{{ messages }}</li>
+            </ul>
+            {% endif %}
+            <h2>Make the most of your professional life</h2>
+            <input type="text" id="first-name" name="first_name" placeholder="First name" required>
+            <input type="text" id="last-name" name="last_name" placeholder="Last name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="tel" id="phone-number" name="phone_number" placeholder="Phone number">
+            <input type="password" id="password" name="password" placeholder="Password (6+ characters)" required>
+            <input type="text" id="city" name="city" placeholder="City">
+            <select id="employment-status" name="employment_status" required>
+                <option value="">Employment status</option>
+                <option value="employed">Employed</option>
+                <option value="student">Student</option>
+                <!-- Add other options as needed -->
+            </select>
+            <button type="submit" class="signup-button">Sign Up</button>
+            <p>Complete Your Profile<a href="{% url 'complete_profile' %}">Sign in</a></p>
+            <p>Already on LinkedIn? <a href="{% url 'login' %}">Sign in</a></p>
+            <!-- Other elements as needed from the reference image -->
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostsApp</title>
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+    {% block styles %}{% endblock styles %} <!-- Block for child template to add extra styles -->
+
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="{% url 'feed' %}" class="header-logo">Home</a></h1>
+        </div>
+    </header>
+
+    <nav class="site-nav">
+        <div class="container">
+            <ul>
+                <li><a href="{% url 'posts:post_list' %}">All Posts</a></li>
+                <li><a href="{% url 'posts:post_create' %}">Create Post</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}
+        <!-- Content will go here -->
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Footer Content</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <title>LinkedIn Login</title>
+</head>
+
+<body>
+    <header class="nav-container">
+        <div class="logo">LinkedIn</div>
+        <ul class="nav-list">
+            <li class="nav-item">Articles</li>
+            <li class="nav-item">People</li>
+            <li class="nav-item">Learning</li>
+            <li class="nav-item">Jobs</li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="{% url 'signup' %}" class="button">Join now</a>
+            <a href="{% url 'login' %}" class="button">Sign in</a>
+        </div>
+    </header>
+    <main class="main-container">
+        <section class="login-section">
+            <h1>Welcome to your<br> professional <br> community</h1>
+            {% if messages %}
+            <ul class="messages">
+                <li class="{{ message.tags }}">{{ messages }}</li>
+            </ul>
+            {% endif %}
+            <form method="post" class="login-form">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="email">Email or phone</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="form-actions">
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                    <button type="submit" class="sign-in-button">Sign in</button>
+                    <a href="{% url 'signup' %}" class="forgot-password">New to LinkedIn? Join Now</a>
+                </div>
+            </form>
+        </section>
+        <section class="image-section">
+            <img src="{% static 'images/loginPage.jpg' %}" alt="LinkedIn community">
+        </section>
+    </main>
+</body>
+
+</html>
