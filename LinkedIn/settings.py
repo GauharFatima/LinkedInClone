@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!w4m%i&19=#u0s@g70i2my2ftw0@9rj_uha#@xb=b+_v8%y+v!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # AUTH_USER_MODEL = 'AccountsApp.MyUser'
 
@@ -80,12 +80,9 @@ WSGI_APPLICATION = 'LinkedIn.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "linkedinclonedb",
-        "USER": "postgres",
-        "PASSWORD": "pass@123",
-        "HOST": "localhost",
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
